@@ -1,9 +1,9 @@
 <template>
   <div>
     <span class="md-subheading">Product source: </span><br/>
-    <md-switch v-model="amazon_source" class="md-primary">Amazon</md-switch><br/>
-    <md-switch v-model="lazada_source" class="md-primary">Lazada</md-switch><br/>
-    <md-switch v-model="shopee_source" class="md-primary">Shopee</md-switch><br/>
+    <md-switch v-model="amazon" class="md-primary">Amazon</md-switch><br/>
+    <md-switch v-model="lazada" class="md-primary">Lazada</md-switch><br/>
+    <md-switch v-model="shopee" class="md-primary">Shopee</md-switch><br/>
   </div>
 </template>
 
@@ -11,11 +11,7 @@
 export default {
   name: 'ProductSourceSwitch',
   data () {
-    return {
-      amazon_source: true,
-      lazada_source: true,
-      shopee_source: true
-    }
+    return this.$store.getters.getProductSources
   }
 }
 </script>

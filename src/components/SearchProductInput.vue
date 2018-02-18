@@ -3,7 +3,9 @@
     <div class="md-layout-item md-size-75">
         <md-autocomplete
         v-model="searchProductText"
-        :md-options="productList">
+        :md-options="productList"
+        @input="updateSearchProductText"
+        >
         <label>Enter item name</label>
         </md-autocomplete>
     </div>
@@ -18,8 +20,13 @@ export default {
   name: 'SearchProductInput',
   data () {
     return {
-      searchProductText: null,
+      searchProductText: this.$store.getters.getSearchProductText,
       productList: []
+    }
+  },
+  methods: {
+    updateSearchProductText () {
+      this.$store.commit('updateSearchProductText', this.searchProductText)
     }
   }
 }

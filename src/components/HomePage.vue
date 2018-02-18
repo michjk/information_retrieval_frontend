@@ -27,20 +27,6 @@ import ProductSourceSwitch from '@/components/ProductSourceSwitch'
 
 export default {
   name: 'HomePage',
-  data () {
-    return {
-      searchProductText: null,
-      productList: [
-        'argentina',
-        'indonesia',
-        'americe',
-        'canada'
-      ],
-      amazon_source: true,
-      lazada_source: true,
-      shopee_source: true
-    }
-  },
   components: {
     'search-product-input': SearchProductInput,
     'product-source-switch': ProductSourceSwitch

@@ -5,15 +5,23 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    // TODO: steate
+    searchProductText: 'hello',
+    productSources: {
+      amazon: true,
+      lazada: true,
+      shopee: true
+    }
   },
   getters: {
-    // TODO: getters
+    getProductSources: state => state.productSources,
+    getSearchProductText: state => state.searchProductText
   },
   mutations: {
-    // TODO: mutations
-  },
-  actions: {
-    // TODO: actions
+    updateProductSources: (state, payload) => {
+      state.productSources[payload.name] = payload.value
+    },
+    updateSearchProductText: (state, text) => {
+      state.searchProductText = text
+    }
   }
 })
