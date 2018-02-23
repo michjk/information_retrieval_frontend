@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    searchProductText: 'hello',
+    searchProductText: null,
     productSources: {
       amazon: true,
       lazada: true,
