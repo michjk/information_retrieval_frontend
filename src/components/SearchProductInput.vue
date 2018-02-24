@@ -1,7 +1,7 @@
 <template>
   <div class="md-layout md-alignment-center-space-between">
     <div class="md-layout-item md-size-75">
-        <md-autocomplete v-model="searchProductText" :md-options="productList" @input="fecthSuggestion">
+        <md-autocomplete v-model="searchProductText" :md-options="productList" @md-changed="fecthSuggestion" @md-opened="fecthSuggestion">
         <label>Enter item name</label>
         </md-autocomplete>
     </div>
@@ -27,13 +27,15 @@ export default {
       this.$store.commit('updateSearchProductText', this.searchProductText)
     },
     fecthSuggestion (text) {
-      const payload = {
-        query: text
-      }
-      console.log(searchProductApiUrl)
-      axios.post(searchProductApiUrl, payload).then(res => {
-        this.productList = res.data.list_product.map(product => {
-          return product.product_name
+      this.productList = new Promise((resolve) => {
+        const payload = {
+          query: text
+        }
+        axios.post(searchProductApiUrl, payload).then(res => {
+          let tmp = res.data.list_product.map(product => {
+            return product.product_name
+          })
+          resolve(tmp)
         })
       })
     }
