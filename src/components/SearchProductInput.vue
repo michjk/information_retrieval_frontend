@@ -1,20 +1,18 @@
 <template>
   <div>
     <div class="md-layout md-alignment-center-space-between">
-      <div class="md-layout-item 75">
+      <div class="md-layout-item md-size-85">
           <md-autocomplete v-model="searchProductText"
                            @md-changed="fecthSuggestion"
                            @md-opened="fecthSuggestion"
-                           id="md-input-1o95t1doe"
                            :md-options="productList" md-layout="box"
                            md-dense
           >
             <label>Enter item name</label>
           </md-autocomplete>
       </div>
-
-      <div class="md-layout-item md-size-25">
-          <md-button class="md-raised md-accent">
+      <div class="md-layout-item md-size-15">
+          <md-button id="md-button" class="md-raised md-accent">
             Find product
           </md-button>
       </div>
@@ -54,3 +52,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.md-button {
+  height: 45px;
+  margin-bottom: 25px;
+}
+</style>
