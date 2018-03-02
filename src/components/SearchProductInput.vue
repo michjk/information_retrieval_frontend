@@ -17,14 +17,14 @@
 <script>
 import axios from 'axios'
 import {searchProductApiUrl} from '@/constants'
-import {styles} from './styles/Search'
+// import {styles} from './styles/Search'
 
 export default {
   name: 'SearchProductInput',
   data () {
     return {
       searchProductText: this.$store.getters.getSearchProductText,
-      productList: [],
+      productList: []
     }
   },
   methods: {
