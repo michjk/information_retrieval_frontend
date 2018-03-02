@@ -1,11 +1,11 @@
 <template>
   <div class="md-layout md-gutter md-alignment-center-center">
 
-    <div class="md-layout-item">
+    <div class="md-layout-item md-size-15 md-alignment-top-right">
       <img id="logo_image" src="@/assets/logo_pricey.png"/>
     </div>
 
-    <div class="md-layout-item" id="search_product_input">
+    <div class="md-layout-item md-size-85" id="search_product_input">
       <search-product-input />
     </div>
 
@@ -15,7 +15,7 @@
 <script>
 
 // Components
-import SearchProductInput from '@/components/SearchProductInput'
+import SearchProductInput from './SearchProductInput'
 
 export default {
   components: {SearchProductInput},

@@ -24,6 +24,8 @@ export default {
 
 <style scoped>
   #list_item_div {
-    padding: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-top: 2rem;
   }
 </style>

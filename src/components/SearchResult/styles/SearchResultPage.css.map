@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,WAAY;EACV,KAAK,EAAE,GAAG;EACV,SAAS,EAAE,KAAK;EAChB,MAAM,EAAE,CAAC",
+"mappings": "AAAA,WAAY;EACV,KAAK,EAAE,IAAI;EACX,SAAS,EAAE,KAAK;;AAGlB,qBAAqB;EACnB,UAAU,EAAE,IAAI",
 "sources": ["SearchResultPage.scss"],
 "names": [],
 "file": "SearchResultPage.css"
