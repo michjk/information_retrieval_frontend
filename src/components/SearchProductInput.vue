@@ -54,7 +54,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  @import './styles/Search.css';
-</style>

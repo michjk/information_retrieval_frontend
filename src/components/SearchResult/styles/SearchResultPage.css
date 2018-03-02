@@ -5,4 +5,36 @@
 #search_product_input {
   margin-top: 15px; }
 
+.md-card {
+  width: 320px;
+  margin: 4px;
+  display: inline-block;
+  vertical-align: top; }
+
+.md-card-example .md-subhead .md-icon {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+  font-size: 16px !important; }
+.md-card-example .md-subhead span {
+  vertical-align: middle; }
+.md-card-example .card-reservation {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  .md-card-example .card-reservation .md-icon {
+    margin: 8px; }
+.md-card-example .md-button-group {
+  display: flex; }
+  .md-card-example .md-button-group .md-button {
+    min-width: 60px;
+    border-radius: 2px; }
+
+.card_layout {
+  display: flex;
+  justify-content: center;
+  padding-left: 0 !important;
+  padding-right: 0 !important; }
+
 /*# sourceMappingURL=SearchResultPage.css.map */
