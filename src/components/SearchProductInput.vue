@@ -2,13 +2,21 @@
   <div>
     <div class="md-layout md-alignment-center-space-between">
       <div class="md-layout-item 75">
-          <md-autocomplete v-model="searchProductText" :md-options="productList" @md-changed="fecthSuggestion" @md-opened="fecthSuggestion">
-          <label>Enter item name</label>
+          <md-autocomplete v-model="searchProductText"
+                           @md-changed="fecthSuggestion"
+                           @md-opened="fecthSuggestion"
+                           id="md-input-1o95t1doe"
+                           :md-options="productList" md-layout="box"
+                           md-dense
+          >
+            <label>Enter item name</label>
           </md-autocomplete>
       </div>
 
       <div class="md-layout-item md-size-25">
-          <md-button class="md-raised md-accent">Find product</md-button>
+          <md-button class="md-raised md-accent">
+            Find product
+          </md-button>
       </div>
     </div>
   </div>
@@ -17,7 +25,6 @@
 <script>
 import axios from 'axios'
 import {searchProductApiUrl} from '@/constants'
-// import {styles} from './styles/Search'
 
 export default {
   name: 'SearchProductInput',
@@ -48,5 +55,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+  @import './styles/Search.css';
 </style>

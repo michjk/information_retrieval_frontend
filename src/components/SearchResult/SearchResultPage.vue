@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="list_item_div">
     <header-search-result />
   </div>
 </template>
@@ -23,4 +23,7 @@ export default {
 </script>
 
 <style scoped>
+  #list_item_div {
+    padding: 1rem;
+  }
 </style>
