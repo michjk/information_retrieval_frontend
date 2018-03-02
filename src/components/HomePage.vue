@@ -4,8 +4,7 @@
         <div class="md-layout-item md-size-35"></div>
         <div class="md-layout-item md-size-30">
             <img src="@/assets/logo_pricey.png"/>
-            <div v-bind:style="heightDiv"></div>
-            <span v-bind:style="priceComparisonStyle">Price comparison for e-commerce product</span>
+            <span class="md-headline">Price comparison for e-commerce product</span>
         </div>
         <div class="md-layout-item md-size-35"></div>
     </div>
@@ -26,11 +25,9 @@
 
 import SearchProductInput from '@/components/SearchProductInput'
 import ProductSourceSwitch from '@/components/ProductSourceSwitch'
-import {styles} from './styles/Search'
 
 export default {
   name: 'HomePage',
-  data: styles,
   components: {
     'search-product-input': SearchProductInput,
     'product-source-switch': ProductSourceSwitch
