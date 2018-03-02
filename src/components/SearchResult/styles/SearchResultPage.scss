@@ -57,3 +57,18 @@
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
+
+// left panel
+#left_panel_dashboard {
+  background-color: inherit;
+  height: 500px;
+  margin-right: 1rem;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+}
+
+#product_source {
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: 'Roboto';
+}

@@ -3,8 +3,17 @@
   <div id="list_item_div">
     <header-search-result />
 
-    <list-search-result></list-search-result>
+    <div class="md-layout">
 
+      <div class="md-layout-item md-size-20">
+        <left-drawer>
+        </left-drawer>
+      </div>
+
+      <div class="md-layout-item md-size-80">
+        <list-search-result></list-search-result>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -17,12 +26,14 @@
 // component
 import HeaderSearchResult from '@/components/SearchResult/HeaderSearchResult'
 import ListSearchResult from '@/components/SearchResult/ListSearchResult'
+import LeftDrawer from '@/components/SearchResult/LeftDrawer'
 
 export default {
   name: 'SearchResultPage',
   components: {
     'header-search-result': HeaderSearchResult,
-    'list-search-result': ListSearchResult
+    'list-search-result': ListSearchResult,
+    'left-drawer': LeftDrawer
   }
 
 }
