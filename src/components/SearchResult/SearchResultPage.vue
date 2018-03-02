@@ -1,6 +1,10 @@
 <template>
+  <!-- Header -->
   <div id="list_item_div">
     <header-search-result />
+
+    <list-search-result></list-search-result>
+
   </div>
 </template>
 
@@ -12,11 +16,13 @@
 
 // component
 import HeaderSearchResult from '@/components/SearchResult/HeaderSearchResult'
+import ListSearchResult from '@/components/SearchResult/ListSearchResult'
 
 export default {
   name: 'SearchResultPage',
   components: {
-    'header-search-result': HeaderSearchResult
+    'header-search-result': HeaderSearchResult,
+    'list-search-result': ListSearchResult
   }
 
 }
