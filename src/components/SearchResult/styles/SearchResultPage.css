@@ -9,7 +9,8 @@
   width: 320px;
   margin: 4px;
   display: inline-block;
-  vertical-align: top; }
+  vertical-align: top;
+  horiz-align: center; }
 
 .md-card-example .md-subhead .md-icon {
   width: 16px;
@@ -30,6 +31,14 @@
   .md-card-example .md-button-group .md-button {
     min-width: 60px;
     border-radius: 2px; }
+
+.image_card {
+  width: 100% !important;
+  height: 50% !important;
+  max-height: 250px; }
+
+.div_image_card {
+  padding: 2rem; }
 
 .card_layout {
   display: flex;
