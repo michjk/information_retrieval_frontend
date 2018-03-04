@@ -11,6 +11,12 @@
         v-bind:key="card.id"
       >
       </search-result-card>
+
+      <div id="button_panel">
+        <md-button class="md-accent" v-on:click="prevPage">Prev</md-button>
+        <md-button class="md-accent" v-on:click="nextPage">Next</md-button>
+      </div>
+
   </div>
 </template>
 
@@ -23,7 +29,6 @@ import SearchResultCard from '@/components/SearchResult/SearchResultCard'
 import {searchListProductApiUrl} from '@/constants'
 import axios from 'axios'
 import { getParameterByName, checkURL } from './../commons/Utils'
-import {VuePaginator} from 'vuejs-paginator'
 
 export default {
   name: 'ListSearchResult',
@@ -32,6 +37,9 @@ export default {
       PRODUCT_NAME: 'product_name',
       OFFSET: 'offset',
       LIMIT: 'limit',
+      total: 0,
+      offset: 0,
+      limit: 27,
       listCard: [
         {
           productName: 'Single',
@@ -47,32 +55,52 @@ export default {
   },
   created () {
     // call the API
-    const productName = getParameterByName(this.PRODUCT_NAME)
-    const offset = getParameterByName(this.OFFSET)
-    const limit = getParameterByName(this.LIMIT)
-    let thisApp = this
-
-    thisApp.listCard = []
-
-    axios.get(searchListProductApiUrl + '?' + this.PRODUCT_NAME + '=' +
-      productName + '&' + this.OFFSET + '=' + offset + '&' + this.LIMIT + '=' + limit)
-      .then((response) => {
-
-        response.data.list_product.list_product.forEach( (product) => {
-          if (checkURL(product.image_link)) {
-            thisApp.listCard.push(product)
-          }
-
-        })
-
-      }).catch((err) => {console.log('err', err)})
+    this.offset = parseInt(getParameterByName(this.OFFSET))
+    this.limit = parseInt(getParameterByName(this.LIMIT))
+    this.callApi()
   },
   components: {
     'search-result-card': SearchResultCard
+  },
+
+  methods: {
+    prevPage: function () {
+      const offset = this.offset - this.limit
+      if (offset >= 0) {
+        this.offset = offset
+        this.callApi()
+      }
+    },
+    nextPage: function () {
+      const offset = this.offset + this.limit
+      if (offset < this.total) {
+        this.offset = offset
+        this.callApi()
+      }
+    },
+    callApi: function () {
+      const productName = getParameterByName(this.PRODUCT_NAME)
+      let thisApp = this
+
+      thisApp.listCard = []
+
+      axios.get(searchListProductApiUrl + '?' + this.PRODUCT_NAME + '=' +
+        productName + '&' + this.OFFSET + '=' + this.offset + '&' + this.LIMIT + '=' + this.limit)
+        .then((response) => {
+
+          thisApp.total = response.data.total;
+
+          response.data.list_product.list_product.forEach( (product) => {
+            if (checkURL(product.image_link)) {
+              thisApp.listCard.push(product)
+            }
+          }).catch((err) => {console.log('err', err)})
+        })
+    }
   }
 }
 </script>
 
 <style>
-
+  @import './styles/SearchResultPage.css';
 </style>

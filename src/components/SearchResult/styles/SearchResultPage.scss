@@ -69,6 +69,14 @@
   padding-right: 0 !important;
 }
 
+#button_panel {
+  display: flex;
+  justify-content: center;
+  padding-left: 40%;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+
 // left panel
 #left_panel_dashboard {
   background-color: inherit;
