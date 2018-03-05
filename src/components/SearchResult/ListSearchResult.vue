@@ -87,14 +87,13 @@ export default {
       axios.get(searchListProductApiUrl + '?' + this.PRODUCT_NAME + '=' +
         productName + '&' + this.OFFSET + '=' + this.offset + '&' + this.LIMIT + '=' + this.limit)
         .then((response) => {
+          thisApp.total = response.data.total
 
-          thisApp.total = response.data.total;
-
-          response.data.list_product.list_product.forEach( (product) => {
+          response.data.list_product.list_product.forEach((product) => {
             if (checkURL(product.image_link)) {
               thisApp.listCard.push(product)
             }
-          }).catch((err) => {console.log('err', err)})
+          }).catch((err) => console.log('err', err))
         })
     }
   }

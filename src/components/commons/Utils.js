@@ -1,3 +1,4 @@
+/* eslint-disable */
 export let getParameterByName = (name, url) => {
   if (!url) url = window.location.href;
   name = name.replace(/[\[\]]/g, "\\$&");
@@ -5,9 +6,9 @@ export let getParameterByName = (name, url) => {
     results = regex.exec(url);
   if (!results) return null;
   if (!results[2]) return '';
-  return decodeURIComponent(results[2].replace(/\+/g, " "));
+  return decodeURIComponent(results[2].replace(/\+/g, " "))
 }
 
 export let checkURL = (url) => {
-  return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+  return (url.match(/\.(jpeg|jpg|gif|png)$/) != null)
 }
