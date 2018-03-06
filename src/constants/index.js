@@ -4,7 +4,7 @@ const productApiUrl = serverUrl + '/ir_api/product_api'
 const resultApiUrl = ''
 
 const searchProductApiUrl = productApiUrl + '/search_product/'
-const searchListProductApiUrl = productApiUrl + '/get_list_item'
+const searchListProductApiUrl = productApiUrl + '/get_list_item/'
 
 export {
   searchProductApiUrl,

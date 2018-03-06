@@ -9,6 +9,7 @@
         :currentPrice="card.current_price"
         :productDescription="card.description"
         v-bind:key="card.id"
+        v-on:click="clickCard"
       >
       </search-result-card>
 
@@ -71,6 +72,7 @@ export default {
         this.callApi()
       }
     },
+
     nextPage: function () {
       const offset = this.offset + this.limit
       if (offset < this.total) {
@@ -78,6 +80,7 @@ export default {
         this.callApi()
       }
     },
+
     callApi: function () {
       const productName = getParameterByName(this.PRODUCT_NAME)
       let thisApp = this
@@ -93,8 +96,15 @@ export default {
             if (checkURL(product.image_link)) {
               thisApp.listCard.push(product)
             }
-          }).catch((err) => console.log('err', err))
-        })
+          })
+        }
+
+        )
+        .catch((err) => console.log('err', err))
+    },
+
+    clickCard: function (event) {
+      console.log('card is clicked', event)
     }
   }
 }
