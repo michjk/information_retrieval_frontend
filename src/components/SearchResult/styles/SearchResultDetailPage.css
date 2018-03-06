@@ -1,0 +1,45 @@
+#div-root {
+	padding-left: 4rem;
+    padding-right: 4rem;
+    padding-top: 2rem;
+}
+
+#div-body {
+	margin-top: 25px;
+}
+
+#md-layout-content {
+	margin-top: 25px;
+}
+
+#md-content-content {
+	padding-top: 50px;
+}
+
+.product-image {
+	margin: 25px 25px 25px 25px;
+}
+
+.vendor-icon {
+	height: 50px;
+}
+
+#current-price {
+	color: red;
+}
+
+#previous-price {
+	text-decoration: line-through;
+}
+
+#md-layout-text > div {
+	margin-top: 25px;
+}
+.custom-button-size {
+	height: 50px;
+	width: 150px;
+}
+#review {
+	color: white;
+	background-color: #4CAF50;
+}
