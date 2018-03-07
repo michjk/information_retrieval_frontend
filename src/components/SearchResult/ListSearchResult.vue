@@ -8,8 +8,9 @@
         :originalPrice="card.original_price"
         :currentPrice="card.current_price"
         :productDescription="card.description"
+        :shop="card.shop"
         v-bind:key="card.id"
-        v-on:click="clickCard"
+        class="item_card"
       >
       </search-result-card>
 
@@ -101,10 +102,6 @@ export default {
 
         )
         .catch((err) => console.log('err', err))
-    },
-
-    clickCard: function (event) {
-      console.log('card is clicked', event)
     }
   }
 }

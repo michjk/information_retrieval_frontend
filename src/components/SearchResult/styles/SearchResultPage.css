@@ -65,4 +65,7 @@
   font-weight: bold;
   font-family: 'Roboto'; }
 
+.item_card {
+  cursor: pointer; }
+
 /*# sourceMappingURL=SearchResultPage.css.map */
