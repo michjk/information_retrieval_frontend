@@ -92,7 +92,7 @@ export default {
         return 'https://pmcdeadline2.files.wordpress.com/2015/08/amazon-featured-image.jpg?w=446&h=299&crop=1'
       }
 
-      return 'https://theme.zdassets.com/theme_assets/1299374/1defb8e5d29ada786c907821fbd17894a08fff4d.png'
+      return null
     }
   },
   methods: {

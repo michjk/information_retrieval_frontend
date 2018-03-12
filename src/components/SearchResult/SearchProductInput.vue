@@ -7,6 +7,7 @@
                            @md-opened="fecthSuggestion"
                            id="md-input-1o95t1doe"
                            :md-options="productList" md-layout="box"
+                           @keyup.enter.native = "goToResultPage"
                            md-dense
           >
             <label>Enter item name</label>

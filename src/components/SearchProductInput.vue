@@ -6,6 +6,7 @@
                            @md-changed="fecthSuggestion"
                            @md-opened="fecthSuggestion"
                            :md-options="productList" md-layout="box"
+                           @keyup.enter.native = "goToResultPage"
                            md-dense
           >
             <label>Enter item name</label>
@@ -51,6 +52,9 @@ export default {
       })
     },
     goToResultPage (event) {
+      if (!(this.searchProductText)) {
+        return
+      }
       router.push(`result?product_name=${this.searchProductText}&offset=0&limit=27`)
     }
   }

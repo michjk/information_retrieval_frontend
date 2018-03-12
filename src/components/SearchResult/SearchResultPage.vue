@@ -35,7 +35,6 @@ export default {
     'list-search-result': ListSearchResult,
     'left-drawer': LeftDrawer
   }
-
 }
 </script>
 

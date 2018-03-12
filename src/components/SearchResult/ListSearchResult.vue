@@ -103,6 +103,11 @@ export default {
         )
         .catch((err) => console.log('err', err))
     }
+  },
+  watch: {
+    '$route' () {
+      this.callApi()
+    }
   }
 }
 </script>
