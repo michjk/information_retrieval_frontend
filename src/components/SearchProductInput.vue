@@ -12,7 +12,7 @@
           </md-autocomplete>
       </div>
       <div class="md-layout-item md-size-15">
-          <md-button id="md-button" class="md-raised md-accent">
+          <md-button id="md-button" class="md-raised md-accent" v-on:click="goToResultPage">
             Find product
           </md-button>
       </div>
@@ -23,6 +23,7 @@
 <script>
 import axios from 'axios'
 import {searchProductApiUrl} from '@/constants'
+import router from './../router'
 
 export default {
   name: 'SearchProductInput',
@@ -48,6 +49,9 @@ export default {
           resolve(tmp)
         })
       })
+    },
+    goToResultPage (event) {
+      router.push(`result?product_name=${this.searchProductText}&offset=0&limit=27`)
     }
   }
 }
