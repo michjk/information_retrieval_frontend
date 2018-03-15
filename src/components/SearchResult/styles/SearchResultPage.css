@@ -33,9 +33,8 @@
     border-radius: 2px; }
 
 .image_card {
-  width: 100% !important;
-  height: 50% !important;
-  max-height: 250px; }
+  height: 250px !important;
+  width: 250px !important; }
 
 .div_image_card {
   padding: 2rem; }
@@ -49,7 +48,6 @@
 #button_panel {
   display: flex;
   justify-content: center;
-  padding-left: 40%;
   margin-top: 5rem;
   margin-bottom: 2rem; }
 
@@ -66,6 +64,7 @@
   font-family: 'Roboto'; }
 
 .item_card {
-  cursor: pointer; }
+  cursor: pointer;
+  height: 500px; }
 
 /*# sourceMappingURL=SearchResultPage.css.map */

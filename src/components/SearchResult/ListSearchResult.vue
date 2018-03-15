@@ -1,5 +1,5 @@
 <template>
-  <div class="md-layout md-gutter">
+  <div>
       <search-result-card
         v-for="card in listCard"
         :productName="card.product_name"
