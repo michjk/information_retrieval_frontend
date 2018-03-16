@@ -96,6 +96,9 @@ export default {
           response.data.list_product.list_product.forEach((product) => {
             if (checkURL(product.image_link)) {
               thisApp.listCard.push(product)
+            }else{
+              product.image_link = 'http://hnctruckparts.com/images/stories/virtuemart/product/unavailable921.jpg';
+              thisApp.listCard.push(product)
             }
           })
         }
