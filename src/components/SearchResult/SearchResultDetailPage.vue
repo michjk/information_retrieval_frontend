@@ -5,7 +5,7 @@
       <div class="md-layout-item">
         <div class="md-layout">
           <div class="md-layout-item">
-            <span class="md-headline">{{product_category}} > {{product.product_name}}</span>
+            <span class="md-headline">{{product.product_name}}</span>
           </div>
         </div>
         <div id="md-layout-content" class="md-layout">
@@ -18,7 +18,7 @@
                 <div id="md-layout-text" class="md-layout-item md-size-70">
                   <div class="md-layout md-alignment-top-space-between">
                     <div class="md-layout-item md-size-60">
-                      <span class="md-display-1">{{product.product_name}}</span>
+                      <span class="md-title">{{product.product_name}}</span>
                     </div>
                     <div class="md-layout-item md-size-20">
                       <a :href="product.product_link"><md-button class="md-accent md-raised custom-button-size">Product page</md-button></a>
@@ -36,9 +36,9 @@
                     </div>
                   </div>
                   <div class="md-layout md-gutter md-alignment-center-space-between">
-                    <div class="md-layout-item md-size-25">
-                      <star-rating v-bind:increment="0.01" read-only=true v-model="product.rating"></star-rating>
-                    </div>
+                    <!--<div class="md-layout-item md-size-25">-->
+                      <!--<star-rating v-bind:increment="0.01" read-only=true v-model="product.rating"></star-rating>-->
+                    <!--</div>-->
                     <div class="md-layout-item md-size-70">
                       <md-button id="review" class="custom-button-size">{{review}} Review </md-button>
                     </div>
@@ -63,6 +63,7 @@ import {productDetailApiUrl} from '@/constants'
 import {StarRating} from 'vue-rate-it'
 import HeaderSearchResult from '@/components/SearchResult/HeaderSearchResult'
 import axios from 'axios'
+import { checkURL } from './../commons/Utils'
 
 export default {
   name: 'SearchResultDetailPage',
@@ -105,7 +106,14 @@ export default {
         .then((response) => {
           console.log(response.data.product)
           for (let i in response.data.product) {
-            this.$set(this.product, i, response.data.product[i])
+
+            let dataInserted = response.data.product[i]
+
+            if (i === 'image_link' && !checkURL(response.data.product[i])) {
+              dataInserted = 'http://hnctruckparts.com/images/stories/virtuemart/product/unavailable921.jpg'
+            }
+
+            this.$set(this.product, i, dataInserted)
           }
         }
         )
