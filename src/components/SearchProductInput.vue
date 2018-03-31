@@ -31,7 +31,8 @@ export default {
   data () {
     return {
       searchProductText: this.$store.getters.getSearchProductText,
-      productList: []
+      productList: [],
+      productSources: this.$store.getters.getProductSources
     }
   },
   methods: {
@@ -55,7 +56,14 @@ export default {
       if (!(this.searchProductText)) {
         return
       }
-      router.push(`result?product_name=${this.searchProductText}&offset=0&limit=27`)
+
+      const amazonIsChosen = this.productSources.amazon ? 'amazon' : ''
+      const shopeeIsChosen = this.productSources.shopee ? 'shopee' : ''
+      const lazadaIsChosen = this.productSources.lazada ? 'lazada' : ''
+
+      let shopQueryString = amazonIsChosen + ',' + shopeeIsChosen + ',' + lazadaIsChosen
+
+      router.push(`result?product_name=${this.searchProductText}&offset=0&limit=27&shop=${shopQueryString}`)
     }
   }
 }

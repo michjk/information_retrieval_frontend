@@ -106,7 +106,6 @@ export default {
         .then((response) => {
           console.log(response.data.product)
           for (let i in response.data.product) {
-
             let dataInserted = response.data.product[i]
 
             if (i === 'image_link' && !checkURL(response.data.product[i])) {

@@ -37,6 +37,7 @@ export default {
   data: function () {
     return {
       PRODUCT_NAME: 'product_name',
+      SHOP: 'shop',
       OFFSET: 'offset',
       LIMIT: 'limit',
       total: 0,
@@ -84,20 +85,23 @@ export default {
 
     callApi: function () {
       const productName = getParameterByName(this.PRODUCT_NAME)
+      const shop = getParameterByName(this.SHOP)
       let thisApp = this
 
       thisApp.listCard = []
 
       axios.get(searchListProductApiUrl + '?' + this.PRODUCT_NAME + '=' +
-        productName + '&' + this.OFFSET + '=' + this.offset + '&' + this.LIMIT + '=' + this.limit)
+        productName + '&' + this.OFFSET + '=' + this.offset + '&' + this.LIMIT + '=' + this.limit + '&' +
+        this.SHOP + '=' + shop
+      )
         .then((response) => {
           thisApp.total = response.data.total
 
           response.data.list_product.list_product.forEach((product) => {
             if (checkURL(product.image_link)) {
               thisApp.listCard.push(product)
-            }else{
-              product.image_link = 'http://hnctruckparts.com/images/stories/virtuemart/product/unavailable921.jpg';
+            } else {
+              product.image_link = 'http://hnctruckparts.com/images/stories/virtuemart/product/unavailable921.jpg'
               thisApp.listCard.push(product)
             }
           })

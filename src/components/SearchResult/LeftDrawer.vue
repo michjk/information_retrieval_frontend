@@ -5,13 +5,13 @@
     </div>
     <div>
       <div>
-        <md-switch v-model="booleanAmazon">Amazon</md-switch>
+        <md-switch v-model="amazon" class="md-primary" @change="updateProductSources('amazon', $event)">Amazon</md-switch>
       </div>
       <div>
-        <md-switch v-model="booleanLazada">Lazada</md-switch>
+        <md-switch v-model="lazada" class="md-primary" @change="updateProductSources('lazada', $event)">Lazada</md-switch>
       </div>
       <div>
-        <md-switch v-model="booleanShopee">Shopee</md-switch>
+        <md-switch v-model="shopee" class="md-primary" @change="updateProductSources('shopee', $event)">Shopee</md-switch>
       </div>
     </div>
   </div>
@@ -23,11 +23,19 @@
 
 export default {
   name: 'LeftDrawer',
-  data: () => ({
-    booleanAmazon: true,
-    booleanLazada: true,
-    booleanShopee: true
-  })
+  data () {
+    return this.$store.getters.getProductSources
+  },
+  methods: {
+    updateProductSources (name, value) {
+      console.log("debug test", name+value);
+      const payload = {
+        name,
+        value
+      }
+      this.$store.commit('updateProductSources', payload)
+    }
+  }
 }
 </script>
 

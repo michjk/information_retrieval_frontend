@@ -30,10 +30,14 @@ import router from './../../router'
 
 export default {
   name: 'SearchProductInput',
+  created () {
+
+  },
   data () {
     return {
       searchProductText: this.$store.getters.getSearchProductText,
-      productList: []
+      productList: [],
+      productSources: this.$store.getters.getProductSources
     }
   },
   methods: {
@@ -54,7 +58,18 @@ export default {
       })
     },
     goToResultPage (event) {
-      router.push(`result?product_name=${this.searchProductText}&offset=0&limit=27`)
+
+      if (!(this.searchProductText)) {
+        return
+      }
+      console.log('debug event', event)
+      const amazonIsChosen = this.productSources.amazon ? 'amazon' : ''
+      const shopeeIsChosen = this.productSources.shopee ? 'shopee' : ''
+      const lazadaIsChosen = this.productSources.lazada ? 'lazada' : ''
+
+      let shopQueryString = amazonIsChosen + ',' + shopeeIsChosen + ',' + lazadaIsChosen
+
+      router.push(`result?product_name=${this.searchProductText}&offset=0&limit=27&shop=${shopQueryString}`)
     }
   }
 }
