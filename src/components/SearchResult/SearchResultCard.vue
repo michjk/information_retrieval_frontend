@@ -1,5 +1,6 @@
 <template>
-    <md-card>
+    <!-- STUPID VUE CANNOT READ THE REFERENCES FROM DATA, IT LOOKS LIKE THEY SAVED THE OLD POINTER -->
+    <md-card v-bind:class="[this.$store.getters.getFindSimilarState && !this.chooseAsSimilarState ? 'overlay_white' : 'overlay_normal']">
       <md-card-media class="div_image_card">
         <img v-bind:src="imageLink" alt="People" class="image_card" v-on:click="clickCard"/>
       </md-card-media>
@@ -25,16 +26,41 @@ export default {
   props: ['productName', 'productId', 'productLink', 'originalPrice', 'currentPrice',
     'productDescription', 'imageLink', 'shop'
   ],
-  data: function () {
+  data () {
     return {
-      image_test: 'https://cfshopeecommy-a.akamaihd.net/file/a6413303a22ad12ed670e62689cacbd9'
+      chooseAsSimilarState: false
+    }
+  },
+  computed: {
+    findSimilarState () {
+      return this.$store.getters.getFindSimilarState
     }
   },
   methods: {
     clickCard: function (event) {
-      router.push(`product_description?product_id=${this.productId}&shop=${this.shop}`)
+      // do not route when it is on the findSimilarState
+      if (this.$store.getters.getFindSimilarState) {
+        this.chooseAsSimilarState = !this.chooseAsSimilarState
+
+        if (this.chooseAsSimilarState) {
+          this.$store.commit('pushToListSimilarResult', this.filterProductName(this.productName))
+        } else {
+          this.$store.commit('deleteFromListSimilarState', this.filterProductName(this.productName))
+        }
+      } else {
+        router.push(`product_description?product_id=${this.productId}&shop=${this.shop}`)
+      }
     },
     filterProductName: filterProductName
+  },
+  watch: {
+    findSimilarState (oldValue, newValue) {
+      // when toggling happened always restart the state of currentChooseAsSimilarState
+      this.chooseAsSimilarState = false
+
+      // reset the list in the store
+      this.$store.commit('resetListSimilarResult')
+    }
   }
 }
 

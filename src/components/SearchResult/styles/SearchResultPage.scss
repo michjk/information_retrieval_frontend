@@ -84,7 +84,13 @@
   padding-top: 0.5rem;
 }
 
-#product_source {
+#find_similar{
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.titleSubDiv {
   font-size: 1rem;
   font-weight: bold;
   font-family: 'Roboto';
@@ -94,4 +100,12 @@
 .item_card {
   cursor: pointer;
   height: 500px;
+}
+
+.overlay_white {
+  opacity: 0.2;
+}
+
+.overlay_normal {
+  opacity: 1;
 }

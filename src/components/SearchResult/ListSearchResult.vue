@@ -28,7 +28,7 @@
 import SearchResultCard from '@/components/SearchResult/SearchResultCard'
 
 // utils
-import {searchListProductApiUrl} from '@/constants'
+import {searchListProductApiUrl, searchMoreResultApiUrl} from '@/constants'
 import axios from 'axios'
 import { getParameterByName, checkURL } from './../commons/Utils'
 
@@ -37,6 +37,7 @@ export default {
   data: function () {
     return {
       PRODUCT_NAME: 'product_name',
+      FIND_SIMILAR_RESULT: 'find_similar_result',
       SHOP: 'shop',
       OFFSET: 'offset',
       LIMIT: 'limit',
@@ -84,31 +85,56 @@ export default {
     },
 
     callApi: function () {
-      const productName = getParameterByName(this.PRODUCT_NAME)
-      const shop = getParameterByName(this.SHOP)
+      const findSimilarResult = getParameterByName(this.FIND_SIMILAR_RESULT)
       let thisApp = this
 
-      thisApp.listCard = []
+      // will check whether it is a called to get similar result
+      if (findSimilarResult != null) {
+        const payload = JSON.parse(findSimilarResult)
+        thisApp.listCard = []
 
-      axios.get(searchListProductApiUrl + '?' + this.PRODUCT_NAME + '=' +
-        productName + '&' + this.OFFSET + '=' + this.offset + '&' + this.LIMIT + '=' + this.limit + '&' +
-        this.SHOP + '=' + shop
-      )
-        .then((response) => {
-          thisApp.total = response.data.total
+        // set the switch back to false
+        this.$store.commit('updateFindSimilarState', false)
 
-          response.data.list_product.list_product.forEach((product) => {
-            if (checkURL(product.image_link)) {
-              thisApp.listCard.push(product)
-            } else {
-              product.image_link = 'http://hnctruckparts.com/images/stories/virtuemart/product/unavailable921.jpg'
-              thisApp.listCard.push(product)
-            }
-          })
-        }
-
+        axios.post(searchMoreResultApiUrl, payload).then(
+          (result) => {
+            result.data.list_product.forEach((product) => {
+              if (checkURL(product.image_link)) {
+                thisApp.listCard.push(product)
+              } else {
+                product.image_link = 'http://hnctruckparts.com/images/stories/virtuemart/product/unavailable921.jpg'
+                thisApp.listCard.push(product)
+              }
+            })
+          }
         )
-        .catch((err) => console.log('err', err))
+
+      } else {
+        const productName = getParameterByName(this.PRODUCT_NAME)
+        const shop = getParameterByName(this.SHOP)
+        let thisApp = this
+
+        thisApp.listCard = []
+
+        axios.get(searchListProductApiUrl + '?' + this.PRODUCT_NAME + '=' +
+          productName + '&' + this.OFFSET + '=' + this.offset + '&' + this.LIMIT + '=' + this.limit + '&' +
+          this.SHOP + '=' + shop
+        )
+          .then((response) => {
+            thisApp.total = response.data.total
+
+            response.data.list_product.list_product.forEach((product) => {
+              if (checkURL(product.image_link)) {
+                thisApp.listCard.push(product)
+              } else {
+                product.image_link = 'http://hnctruckparts.com/images/stories/virtuemart/product/unavailable921.jpg'
+                thisApp.listCard.push(product)
+              }
+            })
+          }
+          )
+          .catch((err) => console.log('err', err))
+      }
     }
   },
   watch: {

@@ -10,11 +10,17 @@ export default new Vuex.Store({
       amazon: true,
       lazada: true,
       shopee: true
-    }
+    },
+    findSimilarState: false,
+    listSimilarResult: [],
+    listResponseSimilarResult: []
   },
   getters: {
     getProductSources: state => state.productSources,
-    getSearchProductText: state => state.searchProductText
+    getSearchProductText: state => state.searchProductText,
+    getFindSimilarState: state => state.findSimilarState,
+    getListSimilarResult: state => state.listSimilarResult,
+    getListResponseSimilarResult: state => state.listResponseSimilarResult
   },
   mutations: {
     updateProductSources: (state, payload) => {
@@ -22,6 +28,28 @@ export default new Vuex.Store({
     },
     updateSearchProductText: (state, text) => {
       state.searchProductText = text
+    },
+    updateFindSimilarState: (state, value) => {
+      state.findSimilarState = value
+    },
+    pushToListSimilarResult: (state, value) => {
+      state.listSimilarResult.push(value)
+    },
+    resetListSimilarResult: (state) => {
+      state.listSimilarResult = []
+    },
+    deleteFromListSimilarState: (state, value) => {
+      const bufferListSimilarResult = state.listSimilarResult
+      state.listSimilarResult = []
+
+      bufferListSimilarResult.forEach((similarResult) => {
+        if (similarResult !== value) {
+          state.listSimilarResult.push(similarResult)
+        }
+      })
+    },
+    updateListResponseSimilarResult: (state, value) => {
+      state.listResponseSimilarResult = value
     }
   }
 })

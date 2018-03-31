@@ -5,9 +5,11 @@ const productApiUrl = serverUrl + '/ir_api/product_api'
 const searchProductApiUrl = productApiUrl + '/search_product/'
 const searchListProductApiUrl = productApiUrl + '/get_list_item/'
 const productDetailApiUrl = productApiUrl + '/get_detail_item'
+const searchMoreResultApiUrl = productApiUrl + '/get_recommended_items/'
 
 export {
   searchProductApiUrl,
   searchListProductApiUrl,
-  productDetailApiUrl
+  productDetailApiUrl,
+  searchMoreResultApiUrl
 }
