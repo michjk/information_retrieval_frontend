@@ -58,7 +58,6 @@ export default {
       })
     },
     goToResultPage (event) {
-
       if (!(this.searchProductText)) {
         return
       }

@@ -18,6 +18,21 @@
             <product-source-switch/>
         </div>
     </div>
+    <!-- ICON TO GO TO THE PAGE OF DATA ANALYTIC -->
+    <span
+      id="icon_data_analytic"
+      v-on:click="goToDataAnalyticPage"
+    >
+      <md-icon
+        color="#505050"
+        class="md-size-2x"
+      >insert_chart
+      </md-icon>
+      <md-tooltip md-direction="top">Data analytic page</md-tooltip>
+    </span>
+
+    <div>
+    </div>
   </div>
 </template>
 
@@ -25,12 +40,18 @@
 
 import SearchProductInput from '@/components/SearchProductInput'
 import ProductSourceSwitch from '@/components/ProductSourceSwitch'
+import router from './../router'
 
 export default {
   name: 'HomePage',
   components: {
     'search-product-input': SearchProductInput,
     'product-source-switch': ProductSourceSwitch
+  },
+  methods: {
+    goToDataAnalyticPage: function () {
+      router.push('data_analytic')
+    }
   }
 }
 </script>
@@ -39,5 +60,11 @@ export default {
 <style scoped>
 #home-page-div-root {
     padding-top: 200px
+}
+
+#icon_data_analytic {
+  position: absolute;
+  bottom: 0px;
+  cursor: pointer;
 }
 </style>

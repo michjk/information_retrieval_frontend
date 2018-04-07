@@ -108,7 +108,6 @@ export default {
             })
           }
         )
-
       } else {
         const productName = getParameterByName(this.PRODUCT_NAME)
         const shop = getParameterByName(this.SHOP)
@@ -123,7 +122,7 @@ export default {
           .then((response) => {
             thisApp.total = response.data.total
 
-            response.data.list_product.list_product.forEach((product) => {
+            response.data.list_product.forEach((product) => {
               if (checkURL(product.image_link)) {
                 thisApp.listCard.push(product)
               } else {
