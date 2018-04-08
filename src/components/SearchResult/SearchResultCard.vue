@@ -11,7 +11,12 @@
       </md-card-header>
 
       <md-card-content>
-        {{originalPrice}} {{currentPrice}}
+        <template v-if="currentPrice===originalPrice">
+          <span id='currPrice'>{{currentPrice}}</span>
+        </template>
+        <template v-else>
+          <span id='currPrice'>{{currentPrice}}</span>   <span id='oriPrice'><strike> {{originalPrice}}</strike></span>
+        </template>
       </md-card-content>
     </md-card>
 </template>

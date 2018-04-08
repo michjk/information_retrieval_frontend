@@ -97,6 +97,7 @@ export default {
 }
 
 #find_similar_button {
-  margin: 8px 0 0 100px;
+  margin: 8px 0 0;
+  align-self: right;
 }
 </style>
