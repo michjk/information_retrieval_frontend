@@ -2,9 +2,9 @@
   <div id="home-page-div-root">
     <div class="md-layout">
         <div class="md-layout-item md-size-35"></div>
-        <div class="md-layout-item md-size-30">
-            <img src="@/assets/logo_pricey.png"/>
-            <span class="md-headline">Price comparison for e-commerce product</span>
+        <div class="logo md-layout-item md-size-30">
+            <img class="logo" src="@/assets/logo_pricey.png"/>
+            <span class="md-headline" >Price comparison for e-commerce product</span>
         </div>
         <div class="md-layout-item md-size-35"></div>
     </div>
@@ -64,7 +64,14 @@ export default {
 
 #icon_data_analytic {
   position: absolute;
-  bottom: 0px;
+  bottom: 12px;
+  left: 12px;
   cursor: pointer;
 }
+
+.logo {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
 </style>
