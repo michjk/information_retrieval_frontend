@@ -1,7 +1,7 @@
 <template>
   <div id="left_panel_dashboard">
     <div class="title_sub_div">
-      Product Source
+      Source:
     </div>
     <div>
       <div>
@@ -20,7 +20,7 @@
         <md-switch v-model="findSimilarState" class="md-primary" @change="updateFindSimilarState($event)">Find Similar</md-switch>
       </div>
       <div>
-        <md-button class="md-raised md-accent" v-on:click="clickFindMoreResult">Search</md-button>
+        <md-button class="md-raised md-accent" :disabled="!findSimilarState" v-on:click="clickFindMoreResult">Search</md-button>
       </div>
     </div>
   </div>
@@ -72,4 +72,17 @@ export default {
 
 <style>
   @import './styles/SearchResultPage.css';
+
+.title_sub_div {
+  font-weight: bold;
+}
+
+.md-primary {
+  margin: 16px 0 0 0;
+}
+
+.find_similar {
+    font-weight: bold;
+}
+
 </style>
