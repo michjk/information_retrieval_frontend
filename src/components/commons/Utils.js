@@ -10,6 +10,10 @@ export let getParameterByName = (name, url) => {
 }
 
 export let checkURL = (url) => {
+	if (url.match(/shopee\.sg/)) {
+		return url || null
+	}
+
   return (url.match(/\.(jpeg|jpg|gif|png)$/) != null)
 }
 
