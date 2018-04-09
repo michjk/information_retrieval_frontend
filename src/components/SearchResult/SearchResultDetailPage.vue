@@ -40,7 +40,7 @@
                       <!--<star-rating v-bind:increment="0.01" read-only=true v-model="product.rating"></star-rating>-->
                     <!--</div>-->
                     <div class="md-layout-item md-size-70">
-                      <md-button id="review" class="custom-button-size">{{review}} Review </md-button>
+                      <md-button v-bind:style="buttonStyle" class="custom-button-size">{{product.semantic_value}} Review </md-button>
                     </div>
                   </div>
                   <div class="md-layout">
@@ -76,7 +76,11 @@ export default {
       AMAZON: 'amazon',
       product_category: 'Category XYZ',
       review: 'Positive',
-      product: {}
+      product: {},
+      buttonStyle: {
+        'color': 'white',
+        'background-color': '#4CAF50'
+      }
     }
   },
   components: {
@@ -110,6 +114,26 @@ export default {
 
             if (i === 'image_link' && !checkURL(response.data.product[i])) {
               dataInserted = 'http://hnctruckparts.com/images/stories/virtuemart/product/unavailable921.jpg'
+            } else if (i === 'semantic_value') {
+              if (response.data.product[i] === 0) {
+                dataInserted = 'neutral'
+                this.buttonStyle = {
+                  'color': 'white',
+                  'backgroundColor': 'blue'
+                }
+              } else if (response.data.product[i] === -1) {
+                dataInserted = 'negative'
+                this.buttonStyle = {
+                  'color': 'white',
+                  'backgroundColor': 'red'
+                }
+              } else {
+                dataInserted = 'positive'
+                this.buttonStyle = {
+                  'color': 'white',
+                  'backgroundColor': 'green'
+                }
+              }
             }
 
             this.$set(this.product, i, dataInserted)
