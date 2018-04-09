@@ -2,9 +2,11 @@
     <div>
       <md-app>
         <md-app-toolbar class="md-primary">
-          <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
-            <md-icon>menu</md-icon>
-          </md-button>
+            <img
+              v-on:click="goToHomePage" src="@/assets/logo_pricey.png"
+              width="100" height="50"
+              id="logo"
+            />
           <span class="md-title">Pricey Dashboard</span>
         </md-app-toolbar>
       </md-app>
@@ -33,6 +35,7 @@ import BubbleChart from './BubbleChart'
 // Api related stuff
 import {getItemsSemantic} from '@/constants'
 import axios from 'axios'
+import router from '../../router'
 
 // utils
 import {getRandomHex} from '@/components/commons/Utils'
@@ -60,7 +63,9 @@ export default {
   },
 
   methods: {
-
+    goToHomePage: function() {
+      router.push('/')
+    },
     callApiForGraph: function () {
       axios.get(getItemsSemantic)
         .then((response) => {
@@ -116,4 +121,7 @@ export default {
   justify-content: center;
 }
 
+#logo {
+  cursor: pointer;
+}
 </style>
