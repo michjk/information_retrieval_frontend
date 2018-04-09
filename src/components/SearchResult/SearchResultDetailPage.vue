@@ -32,7 +32,7 @@
                   <div class="md-layout">
                     <div class="md-layout-item">
                       <div id="current-price" class="md-headline">{{product.current_price!=-1 ? product.current_price : product.original_price}}</div>
-                      <div v-if="product.current_price!=-1" id="previous-price" class="md-subheading">{{product.current_price}}</div>
+                      <div v-if="product.current_price!=-1" id="previous-price" class="md-subheading">{{product.original_price}}</div>
                     </div>
                   </div>
                   <div class="md-layout md-gutter md-alignment-center-space-between">
