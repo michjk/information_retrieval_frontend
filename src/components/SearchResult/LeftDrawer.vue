@@ -98,6 +98,6 @@ export default {
 
 #find_similar_button {
   margin: 8px 0 0;
-  align-self: right;
+  align-self: center;
 }
 </style>
