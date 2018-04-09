@@ -87,7 +87,6 @@ export default {
     },
 
 		getShopImage: function(shop) {
-			console.log("in here")
 			switch(shop) {
 				case 'shopee':
 					return 'https://theme.zdassets.com/theme_assets/1299374/1defb8e5d29ada786c907821fbd17894a08fff4d.png'

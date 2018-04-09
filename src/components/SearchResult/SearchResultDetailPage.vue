@@ -3,11 +3,6 @@
     <header-search-result />
     <div id="div-body" class="md-layout">
       <div class="md-layout-item">
-        <div class="md-layout">
-          <div class="md-layout-item">
-            <span class="md-headline">{{product.product_name}}</span>
-          </div>
-        </div>
         <div id="md-layout-content" class="md-layout">
           <div class="md-layout-item">
             <md-content id = "md-content-content" class="md-elevation-4">
@@ -108,7 +103,6 @@ export default {
       axios.get(productDetailApiUrl + '?' + this.PRODUCT_ID + '=' +
         productId + '&' + this.SHOP + '=' + shop)
         .then((response) => {
-          console.log(response.data.product)
           for (let i in response.data.product) {
             let dataInserted = response.data.product[i]
 
