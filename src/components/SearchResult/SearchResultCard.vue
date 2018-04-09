@@ -11,11 +11,27 @@
       </md-card-header>
 
       <md-card-content>
-        {{originalPrice}} {{currentPrice}}
+        <template v-if="(originalPrice==='-1'&&currentPrice==='-1')||(originalPrice==='0'&&currentPrice==='0')">
+          <span id='currPrice'>Product not available</span>
+        </template>
+        <template v-else-if="currentPrice==='-1'">
+          <span id='currPrice'>{{originalPrice}}</span>
+        </template>
+        <template v-else-if="originalPrice==='-1'">
+          <span id='currPrice'>{{currentPrice}}</span>
+        </template>
+        <template v-else-if="currentPrice<originalPrice">
+          <span id='currPrice'>{{currentPrice}}</span>   <span id='oriPrice'><strike> {{originalPrice}}</strike></span>
+        </template>
+        <template v-else-if="originalPrice<currentPrice">
+          <span id='currPrice'>{{originalPrice}}</span>   <span id='oriPrice'><strike> {{currentPrice}}</strike></span>
+        </template>
+        <template v-else>
+          <span id='currPrice'>{{originalPrice}}</span>
+        </template>
       </md-card-content>
     </md-card>
 </template>
-
 <script>
 
 import router from '../../router'

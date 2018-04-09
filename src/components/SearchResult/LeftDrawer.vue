@@ -1,7 +1,7 @@
 <template>
   <div id="left_panel_dashboard">
     <div class="title_sub_div">
-      Product Source
+      Source:
     </div>
     <div>
       <div>
@@ -19,8 +19,8 @@
       <div>
         <md-switch v-model="findSimilarState" class="md-primary" @change="updateFindSimilarState($event)">Find Similar</md-switch>
       </div>
-      <div>
-        <md-button class="md-raised md-accent" v-on:click="clickFindMoreResult">Search</md-button>
+      <div id="find_similar_button">
+        <md-button class="md-raised md-accent" :disabled="!findSimilarState" v-on:click="clickFindMoreResult" v->Search</md-button>
       </div>
     </div>
   </div>
@@ -72,7 +72,12 @@ export default {
         list_product_name: this.$store.getters.getListSimilarResult,
         initial_query: getParameterByName('product_name')
       }
-      router.push(`result?find_similar_result=${JSON.stringify(payload)}&product_name=${getParameterByName('product_name')}`)
+      const amazonIsChosen = this.productSources.amazon ? 'amazon' : ''
+      const shopeeIsChosen = this.productSources.shopee ? 'shopee' : ''
+      const lazadaIsChosen = this.productSources.lazada ? 'lazada' : ''
+      let shopQueryString = amazonIsChosen + ',' + shopeeIsChosen + ',' + lazadaIsChosen
+      console.log('debug event', shopQueryString)
+      router.push(`result?find_similar_result=${JSON.stringify(payload)}&product_name=${getParameterByName('product_name')}&offset=0&limit=27&shop=${shopQueryString}`)
     }
   }
 }
@@ -80,4 +85,21 @@ export default {
 
 <style>
   @import './styles/SearchResultPage.css';
+
+.title_sub_div {
+  font-weight: bold;
+}
+
+.md-primary {
+  margin: 16px 0 0 0;
+}
+
+.find_similar {
+  font-weight: bold;
+}
+
+#find_similar_button {
+  margin: 8px 0 0;
+  align-self: center;
+}
 </style>

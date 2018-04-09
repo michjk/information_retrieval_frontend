@@ -24,20 +24,39 @@
   display: flex;
   align-items: center;
   justify-content: space-between; }
-  .md-card-example .card-reservation .md-icon {
+.md-card-example .card-reservation .md-icon {
     margin: 8px; }
 .md-card-example .md-button-group {
   display: flex; }
-  .md-card-example .md-button-group .md-button {
+.md-card-example .md-button-group .md-button {
     min-width: 60px;
     border-radius: 2px; }
+.md-card-media + .md-card-header {
+  padding-top: 0px;
+}
+.md-card .md-subhead {
+  font-size: 16px;
+  font-weight:bold;
+  white-space: nowrap;
+  overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#currPrice{
+  font-weight: bold;
+  color: #B71C1C;
+}
+
+#oriPrice{
+  opacity: 0.4;
+}
 
 .image_card {
   height: 250px !important;
   width: 250px !important; }
 
 .div_image_card {
-  padding: 2rem; }
+  padding: 2rem 2rem 1rem 2rem; }
 
 .card_layout {
   display: flex;
@@ -70,10 +89,10 @@
 
 .item_card {
   cursor: pointer;
-  height: 500px; }
+  height: 380px; }
 
 .overlay_white {
-  opacity: 0.2; }
+  opacity: 0.4; }
 
 .overlay_normal {
   opacity: 1; }
