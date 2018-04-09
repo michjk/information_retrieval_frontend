@@ -1,13 +1,15 @@
 <template>
     <div>
       <md-app>
-        <md-app-toolbar class="md-primary">
+        <md-app-toolbar
+          id="toolbar"
+        >
             <img
               v-on:click="goToHomePage" src="@/assets/logo_pricey.png"
               width="100" height="50"
               id="logo"
             />
-          <span class="md-title">Pricey Dashboard</span>
+          <span class="md-title" id="title">Pricey Dashboard</span>
         </md-app-toolbar>
       </md-app>
       <div>
@@ -15,8 +17,8 @@
               <div id="card_div">
                 <div>
                   <bubble-chart :datas="datas"
-                                :width="800"
-                                :height="600"
+                                :width="810"
+                                :height="610"
                   />
                 </div>
               </div>
@@ -123,5 +125,18 @@ export default {
 
 #logo {
   cursor: pointer;
+}
+
+#toolbar {
+
+  background-color: #448aff;
+  color: #FFF;
+
+}
+
+#title {
+
+  color: white;
+
 }
 </style>
