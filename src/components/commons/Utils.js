@@ -27,3 +27,7 @@ export let filterProductName = (productName) => {
 
   return wordReturn;
 }
+
+export let getRandomHex = () => {
+  return '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+}

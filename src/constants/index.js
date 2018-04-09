@@ -6,10 +6,12 @@ const searchProductApiUrl = productApiUrl + '/search_product/'
 const searchListProductApiUrl = productApiUrl + '/get_list_item/'
 const productDetailApiUrl = productApiUrl + '/get_detail_item'
 const searchMoreResultApiUrl = productApiUrl + '/get_recommended_items/'
+const getItemsSemantic = productApiUrl + '/get_items_semantic/'
 
 export {
   searchProductApiUrl,
   searchListProductApiUrl,
   productDetailApiUrl,
-  searchMoreResultApiUrl
+  searchMoreResultApiUrl,
+  getItemsSemantic
 }

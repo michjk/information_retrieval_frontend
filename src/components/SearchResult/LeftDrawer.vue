@@ -53,6 +53,14 @@ export default {
         value
       }
       this.$store.commit('updateProductSources', payload)
+
+      const amazonIsChosen = this.productSources.amazon ? 'amazon' : ''
+      const shopeeIsChosen = this.productSources.shopee ? 'shopee' : ''
+      const lazadaIsChosen = this.productSources.lazada ? 'lazada' : ''
+
+      let shopQueryString = amazonIsChosen + ',' + shopeeIsChosen + ',' + lazadaIsChosen
+
+      router.push(`result?product_name=${getParameterByName('product_name')}&offset=0&limit=27&shop=${shopQueryString}`)
     },
     updateFindSimilarState (value) {
       this.$store.commit('updateFindSimilarState', value)

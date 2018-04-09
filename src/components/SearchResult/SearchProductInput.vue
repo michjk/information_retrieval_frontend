@@ -57,11 +57,10 @@ export default {
         })
       })
     },
-    goToResultPage (event) {
+    goToResultPage () {
       if (!(this.searchProductText)) {
         return
       }
-      console.log('debug event', event)
       const amazonIsChosen = this.productSources.amazon ? 'amazon' : ''
       const shopeeIsChosen = this.productSources.shopee ? 'shopee' : ''
       const lazadaIsChosen = this.productSources.lazada ? 'lazada' : ''
@@ -69,6 +68,11 @@ export default {
       let shopQueryString = amazonIsChosen + ',' + shopeeIsChosen + ',' + lazadaIsChosen
 
       router.push(`result?product_name=${this.searchProductText}&offset=0&limit=27&shop=${shopQueryString}`)
+    }
+  },
+  watch: {
+    productSources: function () {
+      this.goToResultPage()
     }
   }
 }
