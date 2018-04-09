@@ -34,13 +34,13 @@
     min-width: 60px;
     border-radius: 2px; }
 .md-card-media + .md-card-header {
-  padding-top: 4px;
+  padding-top: 4px !important;
 	padding-left: 2rem;
 	padding-bottom: 4px;
 }
 
-.md-card-content {
-	padding-left: 2rem;
+.md-card-header + .md-card-content {
+	padding-left: 2rem !important;
 }
 .md-card .md-subhead {
   font-size: 16px;
