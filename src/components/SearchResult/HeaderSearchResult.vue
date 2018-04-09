@@ -2,7 +2,7 @@
   <div class="md-layout md-gutter md-alignment-center-center">
 
     <div class="md-layout-item md-size-15 md-alignment-top-right">
-      <img id="logo_image" src="@/assets/logo_pricey.png"/>
+      <img v-on:click="gotoHomePage" id="logo_image" src="@/assets/logo_pricey.png"/>
     </div>
 
     <div class="md-layout-item md-size-85" id="search_product_input">
@@ -16,13 +16,19 @@
 
 // Components
 import SearchProductInput from './SearchProductInput'
+import router from '../../router'
 
 export default {
   components: {SearchProductInput},
   name: 'HeaderSearchResult',
   component: {
     'search-product-input': SearchProductInput
-  }
+  },
+	methods: {
+		gotoHomePage: function() {
+			router.push('/')
+		}
+	}
 }
 </script>
 

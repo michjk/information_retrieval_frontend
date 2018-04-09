@@ -1,6 +1,8 @@
 #logo_image {
   width: 100%;
-  min-width: 150px; }
+  min-width: 150px;
+	cursor: pointer;
+}
 
 #search_product_input {
   margin-top: 15px; }
