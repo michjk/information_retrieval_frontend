@@ -13,16 +13,14 @@
         </md-app-toolbar>
       </md-app>
       <div>
-          <md-card>
-              <div id="card_div">
-                <div>
-                  <bubble-chart :datas="datas"
-                                :width="810"
-                                :height="610"
-                  />
-                </div>
-              </div>
-          </md-card>
+        <div id="card_div">
+          <div>
+            <bubble-chart :datas="datas"
+                          :width="810"
+                          :height="610"
+            />
+          </div>
+        </div>
       </div>
     </div>
 </template>
