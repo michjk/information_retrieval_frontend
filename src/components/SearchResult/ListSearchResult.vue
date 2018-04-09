@@ -5,6 +5,7 @@
         :productName="card.product_name"
         :productId="card.product_id"
         :imageLink="card.image_link"
+				:shopImage="card.shop_image"
         :originalPrice="card.original_price"
         :currentPrice="card.current_price"
         :productDescription="card.description"
@@ -49,6 +50,7 @@ export default {
           productName: 'Single',
           productId: 'Sub title',
           imageLink: 'image link',
+					shopImage: 'shop image',
           originalPrice: 'original price',
           currentPrice: 'old_price',
           id: 1,
@@ -83,6 +85,20 @@ export default {
         this.callApi()
       }
     },
+
+		getShopImage: function(shop) {
+			console.log("in here")
+			switch(shop) {
+				case 'shopee':
+					return 'https://theme.zdassets.com/theme_assets/1299374/1defb8e5d29ada786c907821fbd17894a08fff4d.png'
+				case 'lazada':
+					return 'https://laz-img-cdn.alicdn.com/tfs/TB15BYfh4rI8KJjy0FpXXb5hVXa-200-200.png'
+				case 'amazon':
+					return 'https://pmcdeadline2.files.wordpress.com/2015/08/amazon-featured-image.jpg?w=446&h=299&crop=1'
+				default:
+					return null
+			}
+		},
 
     callApi: function () {
       const findSimilarResult = getParameterByName(this.FIND_SIMILAR_RESULT)
@@ -123,12 +139,15 @@ export default {
             thisApp.total = response.data.total
 
             response.data.list_product.forEach((product) => {
+							
+							product.shop_image = this.getShopImage(product.shop)
               if (checkURL(product.image_link)) {
                 thisApp.listCard.push(product)
               } else {
                 product.image_link = 'http://hnctruckparts.com/images/stories/virtuemart/product/unavailable921.jpg'
                 thisApp.listCard.push(product)
               }
+
             })
           }
           )

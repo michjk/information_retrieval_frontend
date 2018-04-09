@@ -1,6 +1,7 @@
 <template>
     <!-- STUPID VUE CANNOT READ THE REFERENCES FROM DATA, IT LOOKS LIKE THEY SAVED THE OLD POINTER -->
     <md-card v-bind:class="[this.$store.getters.getFindSimilarState && !this.chooseAsSimilarState ? 'overlay_white' : 'overlay_normal']">
+				<img v-bind:src="shopImage" class="shop_logo"/>
       <md-card-media class="div_image_card">
         <img v-bind:src="imageLink" alt="People" class="image_card" v-on:click="clickCard"/>
       </md-card-media>
@@ -40,7 +41,7 @@ import {filterProductName} from './../commons/Utils'
 export default {
   name: 'SearchResultCard',
   props: ['productName', 'productId', 'productLink', 'originalPrice', 'currentPrice',
-    'productDescription', 'imageLink', 'shop'
+    'productDescription', 'imageLink', 'shop', 'shopImage'
   ],
   data () {
     return {
@@ -84,4 +85,13 @@ export default {
 
 <style>
   @import './styles/SearchResultPage.css';
+	.shop_logo {
+		position: absolute;
+		bottom: 2rem;
+		right: 1rem;
+		z-index:1;
+		width: 80px !important;
+		height: 40px !important;
+		object-fit: contain;
+	}
 </style>
