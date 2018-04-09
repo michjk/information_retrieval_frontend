@@ -11,7 +11,7 @@
       </md-card-header>
 
       <md-card-content>
-        <template v-if="(originalPrice==='-1'&&currentPrice==='-1')||(originalPrice==='0'&&currentPrice==='0')">
+        <template v-if="(originalPrice==='-1'&&currentPrice==='-1')||(originalPrice==='$0.00'||currentPrice==='$0.00')">
           <span id='currPrice'>Product not available</span>
         </template>
         <template v-else-if="currentPrice==='-1'">
@@ -20,14 +20,22 @@
         <template v-else-if="originalPrice==='-1'">
           <span id='currPrice'>{{currentPrice}}</span>
         </template>
-        <template v-else-if="currentPrice<originalPrice">
+        <template v-else-if="currentPrice.length < originalPrice.length">
           <span id='currPrice'>{{currentPrice}}</span>   <span id='oriPrice'><strike> {{originalPrice}}</strike></span>
         </template>
-        <template v-else-if="originalPrice<currentPrice">
+        <template v-else-if="originalPrice.length < currentPrice.length">
           <span id='currPrice'>{{originalPrice}}</span>   <span id='oriPrice'><strike> {{currentPrice}}</strike></span>
         </template>
         <template v-else>
-          <span id='currPrice'>{{originalPrice}}</span>
+          <template v-if="currentPrice < originalPrice">
+            <span id='currPrice'>{{currentPrice}}</span>   <span id='oriPrice'><strike> {{originalPrice}}</strike></span>
+          </template>
+          <template v-else-if="originalPrice < currentPrice">
+            <span id='currPrice'>{{originalPrice}}</span>   <span id='oriPrice'><strike> {{currentPrice}}</strike></span>
+          </template>
+          <template v-else>
+            <span id='currPrice'>{{originalPrice}}</span>
+          </template>
         </template>
       </md-card-content>
     </md-card>
