@@ -12,7 +12,7 @@
       </md-card-header>
 
       <md-card-content>
-        <template v-if="(originalPrice==='-1'&&currentPrice==='-1')||(originalPrice==='$0.00'||currentPrice==='$0.00')">
+        <template v-if="(originalPrice==='-1'&&currentPrice==='-1')">
           <span id='currPrice'>Product not available</span>
         </template>
         <template v-else-if="currentPrice==='-1'">
