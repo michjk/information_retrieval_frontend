@@ -147,6 +147,12 @@ export default {
             response.data.list_product.forEach((product) => {
 							
 							product.shop_image = this.getShopImage(product.shop)
+							if (product.original_price === '$0.00') {
+								product.original_price = "-1"
+							}
+							if (product.current_price === '$0.00') {
+								product.current_price = "-1"
+							}
               if (checkURL(product.image_link)) {
                 thisApp.listCard.push(product)
               } else {

@@ -128,7 +128,10 @@ export default {
                   'backgroundColor': 'green'
                 }
               }
-            }
+            } else if (i === "original_price" || i === "current_price") {
+								dataInserted = dataInserted === "$0.00" ? "-1" : dataInserted
+						}
+
 
             this.$set(this.product, i, dataInserted)
           }
