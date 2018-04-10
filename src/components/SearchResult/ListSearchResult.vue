@@ -114,6 +114,13 @@ export default {
         axios.post(searchMoreResultApiUrl, payload).then(
           (result) => {
             result.data.list_product.forEach((product) => {
+							if (product.original_price === '$0.00') {
+								product.original_price = -1
+							}
+							if (product.current_price === '$0.00') {
+								product.current_price = -1
+							}
+
               if (checkURL(product.image_link)) {
                 thisApp.listCard.push(product)
               } else {
