@@ -16,7 +16,7 @@
                       <span class="md-title">{{product.product_name}}</span>
                     </div>
                     <div class="md-layout-item md-size-20">
-                      <a :href="product.product_link"><md-button class="md-accent md-raised custom-button-size">Product page</md-button></a>
+                      <a :href="product.product_link"><md-button :disabled="this.getPrintedPrice(product) === null" class="md-accent md-raised custom-button-size">Product page</md-button></a>
                     </div>
                   </div>
                   <div class="md-layout">
@@ -26,7 +26,7 @@
                   </div>
                   <div class="md-layout">
                     <div class="md-layout-item">
-                      <div id="current-price" class="md-headline">{{product.current_price!=-1 && product.current_price < product.original_price ? product.current_price : product.original_price}}</div>
+                      <div id="current-price" class="md-headline">{{ this.getPrintedPrice(product) ? this.getPrintedPrice(product) : "Product not Available" }}</div>
                       <div v-if="product.current_price!=-1 && product.current_price !== product.original_price" id="previous-price" class="md-subheading">{{product.current_price > product.original_price ? product.current_price : product.original_price}}</div>
                     </div>
                   </div>
@@ -96,6 +96,22 @@ export default {
     }
   },
   methods: {
+		getPrintedPrice(product) {
+			const { current_price, original_price } = product;
+			let price;
+
+			if (current_price == -1 && original_price == -1) {
+				price = null;
+			}
+			else if (current_price != -1 && current_price < original_price) {
+				price = current_price
+			}
+			else {
+				price = original_price
+			}
+
+			return price;
+		},
     callApi: function () {
       const productId = this.$route.query.product_id
       const shop = this.$route.query.shop
