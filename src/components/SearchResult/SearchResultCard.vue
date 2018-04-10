@@ -1,18 +1,18 @@
 <template>
     <!-- STUPID VUE CANNOT READ THE REFERENCES FROM DATA, IT LOOKS LIKE THEY SAVED THE OLD POINTER -->
-    <md-card v-bind:class="[this.$store.getters.getFindSimilarState && !this.chooseAsSimilarState ? 'overlay_white' : 'overlay_normal']">
+    <md-card @click.native="clickCard" v-bind:class="[this.$store.getters.getFindSimilarState && !this.chooseAsSimilarState ? 'overlay_white card_background' : 'overlay_normal card_background']">
 				<img v-bind:src="shopImage" class="shop_logo"/>
       <md-card-media class="div_image_card">
-        <img v-bind:src="imageLink" alt="People" class="image_card" v-on:click="clickCard"/>
+        <img v-bind:src="imageLink" alt="People" class="image_card" />
       </md-card-media>
 
       <md-card-header>
         <!--<div class="md-title">{{product_name}}</div>-->
-        <div class="md-subhead" v-on:click="clickCard">{{filterProductName(productName)}}</div>
+        <div class="md-subhead" >{{filterProductName(productName)}}</div>
       </md-card-header>
 
       <md-card-content>
-        <template v-if="(originalPrice==='-1'&&currentPrice==='-1')||(originalPrice==='$0.00'||currentPrice==='$0.00')">
+        <template v-if="(originalPrice==='-1'&&currentPrice==='-1')">
           <span id='currPrice'>Product not available</span>
         </template>
         <template v-else-if="currentPrice==='-1'">
@@ -98,8 +98,19 @@ export default {
 		bottom: 2rem;
 		right: 1rem;
 		z-index:1;
-		width: 80px !important;
+		width: 50px !important;
 		height: 40px !important;
 		object-fit: contain;
+	}
+	.card_background {
+		transition: ease-in-out 0.2s;
+		height: 100%;
+	}
+	.card_background:hover {
+		transition: ease-in-out 0.2s;
+		transform: translate(0, -5px);
+	}
+	.card_background:active {
+		background-color: rgba(200, 200, 200, 0.3);
 	}
 </style>

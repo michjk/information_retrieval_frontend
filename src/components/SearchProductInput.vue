@@ -14,7 +14,7 @@
       </div>
       <div class="md-layout-item md-size-15">
           <md-button id="md-button" class="md-raised md-accent" v-on:click="goToResultPage">
-            Find product
+					Search
           </md-button>
       </div>
     </div>
@@ -63,7 +63,7 @@ export default {
 
       let shopQueryString = amazonIsChosen + ',' + shopeeIsChosen + ',' + lazadaIsChosen
 
-      router.push(`result?product_name=${this.searchProductText}&offset=0&limit=27&shop=${shopQueryString}`)
+      router.push(`result?product_name=${this.searchProductText}&offset=0&limit=28&shop=${shopQueryString}`)
     }
   }
 }

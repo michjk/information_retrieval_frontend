@@ -60,7 +60,7 @@ export default {
 
       let shopQueryString = amazonIsChosen + ',' + shopeeIsChosen + ',' + lazadaIsChosen
 
-      router.push(`result?product_name=${getParameterByName('product_name')}&offset=0&limit=27&shop=${shopQueryString}`)
+      router.push(`result?product_name=${getParameterByName('product_name')}&offset=0&limit=28&shop=${shopQueryString}`)
     },
     updateFindSimilarState (value) {
       this.$store.commit('updateFindSimilarState', value)
@@ -77,7 +77,7 @@ export default {
       const lazadaIsChosen = this.productSources.lazada ? 'lazada' : ''
       let shopQueryString = amazonIsChosen + ',' + shopeeIsChosen + ',' + lazadaIsChosen
       console.log('debug event', shopQueryString)
-      router.push(`result?find_similar_result=${JSON.stringify(payload)}&product_name=${getParameterByName('product_name')}&offset=0&limit=27&shop=${shopQueryString}`)
+      router.push(`result?find_similar_result=${JSON.stringify(payload)}&product_name=${getParameterByName('product_name')}&offset=0&limit=28&shop=${shopQueryString}`)
     }
   }
 }

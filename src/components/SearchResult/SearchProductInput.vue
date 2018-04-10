@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="md-layout">
-      <div class="md-layout-item md-size-85">
+    <div class="searchinput md-layout">
+      <div class="input md-layout-item md-size-90">
           <md-autocomplete v-model="searchProductText"
                            @md-changed="fecthSuggestion"
                            @md-opened="fecthSuggestion"
@@ -9,14 +9,15 @@
                            :md-options="productList" md-layout="box"
                            @keyup.enter.native = "goToResultPage"
                            md-dense
+													 class="input_box"
           >
             <label>Enter item name</label>
           </md-autocomplete>
       </div>
 
-      <div class="md-layout-item md-size-15">
+      <div class="md-layout-item md-size-10">
           <md-button class="md-raised md-accent" id="find_product" v-on:click="goToResultPage">
-            Find product
+						Search
           </md-button>
       </div>
     </div>
@@ -67,7 +68,7 @@ export default {
 
       let shopQueryString = amazonIsChosen + ',' + shopeeIsChosen + ',' + lazadaIsChosen
 
-      router.push(`result?product_name=${this.searchProductText}&offset=0&limit=27&shop=${shopQueryString}`)
+      router.push(`result?product_name=${this.searchProductText}&offset=0&limit=28&shop=${shopQueryString}`)
     }
   },
   watch: {
@@ -80,4 +81,11 @@ export default {
 
 <style>
   @import './styles/Search.css';
+	.searchinput {
+		justify-content: center;
+		align-items: center;
+	}
+	.input_box {
+		margin: 0px !important;
+	}
 </style>

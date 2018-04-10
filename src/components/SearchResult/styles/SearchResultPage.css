@@ -1,15 +1,17 @@
 #logo_image {
   width: 100%;
-  min-width: 150px;
+	object-fit: contain;
 	cursor: pointer;
+	padding-right: 1.5rem;
 }
 
 #search_product_input {
-  margin-top: 15px; }
+  margin-top: 15px 0px 0px 15px;
+	padding: 0px;
+}
 
 .md-card {
-  width: 320px;
-  margin: 4px;
+  width: 300px;
   display: inline-block;
   vertical-align: top;
   horiz-align: center; }
@@ -68,6 +70,9 @@
 
 .div_image_card {
   padding: 2rem 2rem 1rem 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .card_layout {
@@ -79,14 +84,13 @@
 #button_panel {
   display: flex;
   justify-content: center;
-  margin-top: 5rem;
+  margin-top: 2rem;
   margin-bottom: 2rem; }
 
 #left_panel_dashboard {
   background-color: inherit;
   height: 500px;
   margin-right: 1rem;
-  padding-left: 1rem;
   padding-top: 0.5rem; }
 
 #find_similar {
@@ -101,7 +105,9 @@
 
 .item_card {
   cursor: pointer;
-  height: 380px; }
+  height: 380px;
+	margin: 6px;
+}
 
 .overlay_white {
   opacity: 0.4; }

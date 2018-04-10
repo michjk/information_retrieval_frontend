@@ -16,8 +16,8 @@
       </search-result-card>
 
       <div id="button_panel">
-        <md-button class="md-accent" v-on:click="prevPage">Prev</md-button>
-        <md-button class="md-accent" v-on:click="nextPage">Next</md-button>
+        <md-button class="md-accent" :disabled="this.offset - this.limit < 0" v-on:click="prevPage">Prev</md-button>
+        <md-button class="md-accent" :disabled="this.offset + this.limit > this.total" v-on:click="nextPage">Next</md-button>
       </div>
 
   </div>
@@ -44,7 +44,7 @@ export default {
       LIMIT: 'limit',
       total: 0,
       offset: 0,
-      limit: 27,
+      limit: 28,
       listCard: [
         {
           productName: 'Single',
@@ -93,7 +93,7 @@ export default {
 				case 'lazada':
 					return 'https://laz-img-cdn.alicdn.com/tfs/TB15BYfh4rI8KJjy0FpXXb5hVXa-200-200.png'
 				case 'amazon':
-					return 'https://pmcdeadline2.files.wordpress.com/2015/08/amazon-featured-image.jpg?w=446&h=299&crop=1'
+					return 'https://upload.wikimedia.org/wikipedia/commons/7/70/Amazon_logo_plain.svg'
 				default:
 					return null
 			}
@@ -114,6 +114,13 @@ export default {
         axios.post(searchMoreResultApiUrl, payload).then(
           (result) => {
             result.data.list_product.forEach((product) => {
+							if (product.original_price === '$0.00') {
+								product.original_price = -1
+							}
+							if (product.current_price === '$0.00') {
+								product.current_price = -1
+							}
+
               if (checkURL(product.image_link)) {
                 thisApp.listCard.push(product)
               } else {
@@ -140,6 +147,12 @@ export default {
             response.data.list_product.forEach((product) => {
 							
 							product.shop_image = this.getShopImage(product.shop)
+							if (product.original_price === '$0.00') {
+								product.original_price = "-1"
+							}
+							if (product.current_price === '$0.00') {
+								product.current_price = "-1"
+							}
               if (checkURL(product.image_link)) {
                 thisApp.listCard.push(product)
               } else {

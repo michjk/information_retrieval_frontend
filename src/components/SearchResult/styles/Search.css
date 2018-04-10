@@ -1,3 +1,8 @@
 #find_product {
-    height: 46px
+    height: 44px;
+		width: 90%;
+}
+
+.input {
+	padding: 0 6px 0 6px;
 }

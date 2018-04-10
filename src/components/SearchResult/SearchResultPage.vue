@@ -5,12 +5,12 @@
 
     <div class="md-layout">
 
-      <div class="md-layout-item md-size-20">
+      <div class="md-layout-item md-size-15">
         <left-drawer>
         </left-drawer>
       </div>
 
-      <div class="md-layout-item md-size-80">
+      <div class="item_wrapper md-layout-item md-size-85">
         <list-search-result></list-search-result>
       </div>
     </div>
@@ -40,8 +40,12 @@ export default {
 
 <style scoped>
   #list_item_div {
-    padding-left: 4rem;
-    padding-right: 4rem;
-    padding-top: 2rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    padding-top: 4rem;
   }
+	
+	.item_wrapper {
+		padding: 0px !important;
+	}
 </style>
