@@ -16,8 +16,8 @@
       </search-result-card>
 
       <div id="button_panel">
-        <md-button class="md-accent" v-on:click="prevPage">Prev</md-button>
-        <md-button class="md-accent" v-on:click="nextPage">Next</md-button>
+        <md-button class="md-accent" :disabled="this.offset - this.limit < 0" v-on:click="prevPage">Prev</md-button>
+        <md-button class="md-accent" :disabled="this.offset + this.limit > this.total" v-on:click="nextPage">Next</md-button>
       </div>
 
   </div>

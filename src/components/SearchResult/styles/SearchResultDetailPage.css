@@ -1,7 +1,5 @@
 #div-root {
-		padding-left: 6rem;
-    padding-right: 6rem;
-    padding-top: 4rem;
+		padding: 4rem 6rem 4rem 6rem;
 }
 
 #div-body {
