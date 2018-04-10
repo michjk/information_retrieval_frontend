@@ -1,5 +1,5 @@
 <template>
-  <div class="md-layout md-gutter md-alignment-center-center">
+  <div class="header md-layout md-alignment-center-center">
 
     <div class="md-layout-item md-size-15 md-alignment-top-right">
       <img v-on:click="gotoHomePage" id="logo_image" src="@/assets/logo_pricey.png"/>
@@ -34,4 +34,7 @@ export default {
 
 <style>
   @import './styles/SearchResultPage.css';
+	.header {
+		margin-bottom: 1rem;
+	}
 </style>

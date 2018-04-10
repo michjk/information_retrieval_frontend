@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="md-layout">
-      <div class="md-layout-item md-size-85">
+      <div class="input md-layout-item md-size-90">
           <md-autocomplete v-model="searchProductText"
                            @md-changed="fecthSuggestion"
                            @md-opened="fecthSuggestion"
@@ -14,7 +14,7 @@
           </md-autocomplete>
       </div>
 
-      <div class="md-layout-item md-size-15">
+      <div class="md-layout-item md-size-10">
           <md-button class="md-raised md-accent" id="find_product" v-on:click="goToResultPage">
             Find product
           </md-button>
