@@ -86,6 +86,6 @@ export default {
 		align-items: center;
 	}
 	.input_box {
-		margin: 0px;
+		margin: 0px !important;
 	}
 </style>
