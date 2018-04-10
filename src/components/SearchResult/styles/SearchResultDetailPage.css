@@ -1,7 +1,7 @@
 #div-root {
-	padding-left: 4rem;
-    padding-right: 4rem;
-    padding-top: 2rem;
+		padding-left: 6rem;
+    padding-right: 6rem;
+    padding-top: 4rem;
 }
 
 #div-body {
@@ -13,7 +13,7 @@
 }
 
 #md-content-content {
-	padding-top: 50px;
+	padding: 3rem 1rem 3rem 1rem;
 }
 
 .product-image {
@@ -22,14 +22,19 @@
 
 .vendor-icon {
 	height: 50px;
+	width: 50px;
+	object-fit: contain;
 }
 
 #current-price {
 	color: red;
+	padding: 0px 0px 0px 4px
 }
 
 #previous-price {
 	text-decoration: line-through;
+	padding: 0px 4px 0px 0px;
+	color: grey;
 }
 
 #md-layout-text > div {
@@ -42,4 +47,52 @@
 #review {
 	color: white;
 	background-color: #4CAF50;
+}
+
+.product_name {
+	font-size: 24px !important;
+}
+
+.product_description {
+	font-family: sans-serif;
+	margin: 0px;
+}
+
+.heading {
+	font-weight: bold;
+	padding: 8px 8px 8px 0px;
+	margin: 0px;
+}
+
+.price_wrapper {
+	display: flex;
+	align-items:center;
+}
+
+.product_button_wrapper {
+	position: absolute;
+	top: 8px;
+	right: 96px;
+}
+
+.product_wrapper {
+	position: relative;
+}
+
+.source_wrapper {
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 8px;
+}
+
+.sentiment {
+	text-transform: capitalize;
+	height: 40px;
+	width: 80px;
+	padding: 8px;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

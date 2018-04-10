@@ -98,7 +98,7 @@ export default {
 		bottom: 2rem;
 		right: 1rem;
 		z-index:1;
-		width: 80px !important;
+		width: 50px !important;
 		height: 40px !important;
 		object-fit: contain;
 	}
