@@ -1,24 +1,26 @@
 <template>
     <div>
       <md-app>
-        <md-app-toolbar class="md-primary">
-          <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
-            <md-icon>menu</md-icon>
-          </md-button>
-          <span class="md-title">Pricey Dashboard</span>
+        <md-app-toolbar
+          id="toolbar"
+        >
+            <img
+              v-on:click="goToHomePage" src="@/assets/logo_pricey.png"
+              width="100" height="50"
+              id="logo"
+            />
+          <span class="md-title" id="title">Pricey Dashboard</span>
         </md-app-toolbar>
       </md-app>
       <div>
-          <md-card>
-              <div id="card_div">
-                <div>
-                  <bubble-chart :datas="datas"
-                                :width="800"
-                                :height="600"
-                  />
-                </div>
-              </div>
-          </md-card>
+        <div id="card_div">
+          <div>
+            <bubble-chart :datas="datas"
+                          :width="810"
+                          :height="610"
+            />
+          </div>
+        </div>
       </div>
     </div>
 </template>
@@ -33,6 +35,7 @@ import BubbleChart from './BubbleChart'
 // Api related stuff
 import {getItemsSemantic} from '@/constants'
 import axios from 'axios'
+import router from '../../router'
 
 // utils
 import {getRandomHex} from '@/components/commons/Utils'
@@ -60,7 +63,9 @@ export default {
   },
 
   methods: {
-
+    goToHomePage: function() {
+      router.push('/')
+    },
     callApiForGraph: function () {
       axios.get(getItemsSemantic)
         .then((response) => {
@@ -116,4 +121,20 @@ export default {
   justify-content: center;
 }
 
+#logo {
+  cursor: pointer;
+}
+
+#toolbar {
+
+  background-color: #448aff;
+  color: #FFF;
+
+}
+
+#title {
+
+  color: white;
+
+}
 </style>
