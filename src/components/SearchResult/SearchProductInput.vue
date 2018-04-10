@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="md-layout">
+    <div class="searchinput md-layout">
       <div class="input md-layout-item md-size-90">
           <md-autocomplete v-model="searchProductText"
                            @md-changed="fecthSuggestion"
@@ -9,6 +9,7 @@
                            :md-options="productList" md-layout="box"
                            @keyup.enter.native = "goToResultPage"
                            md-dense
+													 class="input_box"
           >
             <label>Enter item name</label>
           </md-autocomplete>
@@ -80,4 +81,11 @@ export default {
 
 <style>
   @import './styles/Search.css';
+	.searchinput {
+		justify-content: center;
+		align-items: center;
+	}
+	.input_box {
+		margin: 0px;
+	}
 </style>

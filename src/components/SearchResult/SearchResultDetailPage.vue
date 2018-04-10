@@ -10,7 +10,6 @@
 								<div class="product_button_wrapper">
 									<a :href="product.product_link" target="_blank"><md-button :disabled="this.getPrintedPrice(product) === null" class="md-accent md-raised custom-button-size">Product page</md-button></a>
 									<div class="source_wrapper">
-											<span class="heading">Source: </span>
                       <img class="vendor-icon" v-bind:src="shopIconLink"/>
 									</div>
 								</div>
