@@ -1,6 +1,7 @@
 <template>
     <!-- STUPID VUE CANNOT READ THE REFERENCES FROM DATA, IT LOOKS LIKE THEY SAVED THE OLD POINTER -->
     <md-card @click.native="clickCard" v-bind:class="[this.$store.getters.getFindSimilarState && !this.chooseAsSimilarState ? 'overlay_white' : 'overlay_normal']">
+		<div class="card_background">
 				<img v-bind:src="shopImage" class="shop_logo"/>
       <md-card-media class="div_image_card">
         <img v-bind:src="imageLink" alt="People" class="image_card" v-on:click="clickCard"/>
@@ -39,6 +40,7 @@
           </template>
         </template>
       </md-card-content>
+			</div>
     </md-card>
 </template>
 <script>
@@ -101,5 +103,14 @@ export default {
 		width: 50px !important;
 		height: 40px !important;
 		object-fit: contain;
+	}
+	.card_background {
+		height: 100%;
+	}
+	.card_background:hover {
+		background-color: rgba(255, 82, 82, 0.3);
+	}
+	.card_background:active {
+		background-color: rgba(255, 82, 82, 0.6);
 	}
 </style>
