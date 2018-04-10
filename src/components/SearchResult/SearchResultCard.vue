@@ -3,12 +3,12 @@
     <md-card @click.native="clickCard" v-bind:class="[this.$store.getters.getFindSimilarState && !this.chooseAsSimilarState ? 'overlay_white card_background' : 'overlay_normal card_background']">
 				<img v-bind:src="shopImage" class="shop_logo"/>
       <md-card-media class="div_image_card">
-        <img v-bind:src="imageLink" alt="People" class="image_card" v-on:click="clickCard"/>
+        <img v-bind:src="imageLink" alt="People" class="image_card" />
       </md-card-media>
 
       <md-card-header>
         <!--<div class="md-title">{{product_name}}</div>-->
-        <div class="md-subhead" v-on:click="clickCard">{{filterProductName(productName)}}</div>
+        <div class="md-subhead" >{{filterProductName(productName)}}</div>
       </md-card-header>
 
       <md-card-content>
