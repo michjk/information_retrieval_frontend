@@ -40,8 +40,8 @@ export default {
 
 <style scoped>
   #list_item_div {
-    padding-left: 8rem;
-    padding-right: 8rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
     padding-top: 4rem;
   }
 	
