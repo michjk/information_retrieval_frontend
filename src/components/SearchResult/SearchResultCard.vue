@@ -1,6 +1,6 @@
 <template>
     <!-- STUPID VUE CANNOT READ THE REFERENCES FROM DATA, IT LOOKS LIKE THEY SAVED THE OLD POINTER -->
-    <md-card v-bind:class="[this.$store.getters.getFindSimilarState && !this.chooseAsSimilarState ? 'overlay_white' : 'overlay_normal']">
+    <md-card @click.native="clickCard" v-bind:class="[this.$store.getters.getFindSimilarState && !this.chooseAsSimilarState ? 'overlay_white' : 'overlay_normal']">
 				<img v-bind:src="shopImage" class="shop_logo"/>
       <md-card-media class="div_image_card">
         <img v-bind:src="imageLink" alt="People" class="image_card" v-on:click="clickCard"/>
