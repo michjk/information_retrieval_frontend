@@ -4,7 +4,7 @@
         <div class="md-layout-item md-size-35"></div>
         <div class="logo md-layout-item md-size-30">
             <img class="logo" src="@/assets/logo_pricey.png"/>
-            <span class="md-headline" >Price comparison for e-commerce product</span>
+            <span class="md-headline" >Product Comparison for E-commerce</span>
         </div>
         <div class="md-layout-item md-size-35"></div>
     </div>
